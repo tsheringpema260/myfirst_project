@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider-Man JS Exercise Playground</title>
+
+    <!-- Font Awesome 6 (CDN) -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-spider"></i> Spider-Man JS Playground</h1>
+            <p class="subtitle">With great power comes great responsibility — test your functions in style</p>
+        </header>
+
+        <!-- ==============================
+             CARD 1 — Function Buttons
+             ============================== -->
+        <div class="card">
+            <h2><i class="fa-solid fa-terminal"></i> Run Your Functions</h2>
+            <div class="btn-grid" id="btnGrid">
+
+                <!-- Exercise 1 — Variables & Data Types -->
+                <button onclick="handleTest('functionOne')">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>functionOne()<small>Variables</small></span>
+                </button>
+
+                <!-- Exercise 2 — Template Literals -->
+                <button onclick="handleTest('functionTwo')">
+                    <i class="fa-solid fa-code"></i>
+                    <span>functionTwo()<small>Template Literals</small></span>
+                </button>
+
+                <!-- Exercise 3 — Logical Operators -->
+                <button onclick="handleTest('functionThree')">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span>functionThree()<small>Logical Ops</small></span>
+                </button>
+
+                <!-- Exercise 4 — Control Structures -->
+                <button onclick="handleTest('functionFour')">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>functionFour()<small>if / else</small></span>
+                </button>
+
+                <!-- Exercise 5 — Loops -->
+                <button onclick="handleTest('functionFive')">
+                    <i class="fa-solid fa-rotate"></i>
+                    <span>functionFive()<small>Loops</small></span>
+                </button>
+
+                <!-- Exercise 6 — Arrays -->
+                <button onclick="handleTest('functionSix')">
+                    <i class="fa-solid fa-list-ul"></i>
+                    <span>functionSix()<small>Arrays</small></span>
+                </button>
+
+                <!-- Exercise 7 — Objects -->
+                <button onclick="handleTest('functionSeven')">
+                    <i class="fa-solid fa-user"></i>
+                    <span>functionSeven()<small>Objects</small></span>
+                </button>
+
+                <!-- Exercise 8 — Functions -->
+                <button onclick="handleTest('functionEight')">
+                    <i class="fa-solid fa-table-cells"></i>
+                    <span>functionEight()<small>Functions</small></span>
+                </button>
+
+                <!-- Run Everything -->
+                <button class="run-all" onclick="handleRunAll()">
+                    <i class="fa-solid fa-play"></i>
+                    <span>Run All Functions</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ==============================
+             CARD 2 — Console Output
+             ============================== -->
+        <div class="card">
+            <h2><span class="status-dot"></span>Console Output</h2>
+            <div id="output"></div>
+            <div style="margin-top: 1rem;">
+                <button class="clear-btn" onclick="clearOutput()">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span>Clear Console</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ==============================
+             CARD 3 — Exercise 9: Spider-Sense Demo
+             ============================== -->
+        <div class="card">
+            <h2><i class="fa-solid fa-bolt"></i> Exercise 9 — Spider-Sense Demo</h2>
+            <h1 id="message">Waiting for danger...</h1>
+            <button id="changeBtn">
+                <i class="fa-solid fa-spider"></i>
+                <span>Activate Spider-Sense</span>
+            </button>
+        </div>
+
+        <!-- ==============================
+             CARD 4 — Exercise 10: Daily Bugle Missions
+             ============================== -->
+        <div class="card">
+            <h2><i class="fa-solid fa-newspaper"></i> Exercise 10 — Daily Bugle Mission Board</h2>
+            <ul id="taskList"></ul>
+            <div class="task-row">
+                <input id="taskInput" type="text" placeholder="New mission...">
+                <button id="addTaskBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add Mission</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================
+         Script 1 — Exercise Functions
+         ============================== -->
+    <script>
+        // ============================================================
+        // SPIDER-MAN JS EXERCISES — Friendly Neighborhood Web Slinger
+        // ============================================================
+
+        function functionOne() {
+            const name = "Peter Parker";
+            const age = 19;
+            const isEnrolled = true;
+            const subjects = ["Physics", "Chemistry", "Web Design"];
+
+            console.log(name, typeof name);
+            console.log(age, typeof age);
+            console.log(isEnrolled, typeof isEnrolled);
+            console.log(subjects, typeof subjects);
+
+            return "functionOne executed!";
+        }
+
+        function functionTwo() {
+            const name = "Peter Parker";
+            const age = 19;
+            const currentYear = 2026;
+
+            console.log(`${name} is ${age} years old and slings webs across NYC.`);
+            const yearTurning30 = currentYear + (30 - age);
+            console.log(`Peter will turn 30 in ${yearTurning30}.`);
+
+            return "functionTwo executed!";
+        }
+
+        function functionThree() {
+            const age = 19;
+            const isEnrolled = true;
+
+            console.log(age >= 16 && isEnrolled); // true
+
+            const youngAge = 14;
+            console.log(youngAge >= 16 && isEnrolled); // false
+
+            const greenGoblinThreat = 8;
+            const docOckThreat = 9;
+            console.log(greenGoblinThreat > 5 && docOckThreat > 5); // true
+            console.log(greenGoblinThreat > 9 || docOckThreat > 9); // true
+            console.log(!isEnrolled); // false
+
+            return "functionThree executed!";
+        }
+
+        function functionFour() {
+            let score = 82;
+
+            if (score >= 90) {
+                console.log("Avengers-level threat!");
+            } else if (score >= 75) {
+                console.log("Spider-Man can handle it!");
+            } else if (score >= 50) {
+                console.log("Call for backup!");
+            } else {
+                console.log("Just a friendly neighborhood issue.");
+            }
+
+            return "functionFour executed!";
+        }
+
+        function functionFive() {
+            for (let i = 1; i <= 10; i++) {
+                console.log(`Web-shooter power x${i} = ${7 * i} units!`);
+            }
+
+            let spiderSense = 5;
+            while (spiderSense > 0) {
+                console.log(`Spider-Sense tingling #${spiderSense} — danger!`);
+                spiderSense--;
+            }
+
+            return "functionFive executed!";
+        }
+
+        function functionSix() {
+            const favoriteVillains = ["Green Goblin", "Doctor Octopus", "Venom"];
+            favoriteVillains.push("Sandman");
+            favoriteVillains.pop();
+            console.log(favoriteVillains.length);
+
+            let position = 1;
+            for (const villain of favoriteVillains) {
+                console.log(`${position}: ${villain}`);
+                position++;
+            }
+
+            return "functionSix executed!";
+        }
+
+        function functionSeven() {
+            const student = {
+                name: "Peter Parker",
+                age: 19,
+                subjects: ["Physics", "Chemistry", "Web Design"],
+                greet: function () {
+                    return `Hi, I'm ${this.name}, studying ${this.subjects.length} subjects at Midtown High.`;
+                },
+            };
+
+            console.log(student.greet());
+            return "functionSeven executed!";
+        }
+
+        function functionEight() {
+            function calculateAverage(scores) {
+                let total = 0;
+                for (const s of scores) total += s;
+                return total / scores.length;
+            }
+
+            const calculateAverageArrow = (scores) => {
+                let total = 0;
+                for (const s of scores) total += s;
+                return total / scores.length;
+            };
+
+            const testScores = [80, 92, 74, 88];
+            console.log(calculateAverage(testScores));
+            console.log(calculateAverageArrow(testScores));
+
+            return "functionEight executed!";
+        }
+
+        function functionNine() {
+            const heading = document.querySelector("#message");
+            const btn = document.querySelector("#changeBtn");
+
+            if (btn && heading) {
+                btn.addEventListener("click", () => {
+                    heading.textContent = "Spider-Sense Activated! Danger is near!";
+                    heading.classList.toggle("highlighted");
+                });
+            }
+
+            return "functionNine executed!";
+        }
+
+        function functionTen() {
+            const tasks = ["Photograph Spider-Man", "Save Aunt May"];
+
+            function renderTasks() {
+                const list = document.querySelector("#taskList");
+                if (!list) return;
+                list.textContent = "";
+
+                for (const task of tasks) {
+                    const item = document.createElement("li");
+                    item.textContent = task;
+                    list.appendChild(item);
+                }
+            }
+
+            renderTasks();
+
+            const input = document.querySelector("#taskInput");
+            const addBtn = document.querySelector("#addTaskBtn");
+
+            if (addBtn && input) {
+                addBtn.addEventListener("click", () => {
+                    if (input.value.trim() !== "") {
+                        tasks.push(input.value);
+                        renderTasks();
+                        input.value = "";
+                    }
+                });
+            }
+
+            return "functionTen executed!";
+        }
+    </script>
+
+    <!-- ==============================
+         Script 2 — Playground Helpers
+         ============================== -->
+    <script>
+        // ============================================================
+        // Playground helpers — Spider-Man Edition (Font Awesome)
+        // ============================================================
+
+        const output = document.getElementById('output');
+
+        function log(message, type = 'log') {
+            const time = new Date().toLocaleTimeString();
+            const line = document.createElement('div');
+            line.className = 'log-line';
+            line.innerHTML = `<span class="timestamp">[${time}]</span>${message}`;
+            if (type === 'error') line.style.color = '#ff2e63';
+            if (type === 'warn')  line.style.color = '#ffb347';
+            if (type === 'ok')    line.style.color = '#7effa0';
+            output.appendChild(line);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearOutput() {
+            output.innerHTML = '';
+            log('<i class="fa-solid fa-broom"></i> Console cleared.');
+        }
+
+        function handleTest(fnName) {
+            if (typeof window[fnName] !== 'function') {
+                log(`<i class="fa-solid fa-circle-xmark"></i> ${fnName}() is not defined!`, 'error');
+                return;
+            }
+            try {
+                log(`<i class="fa-solid fa-play"></i> Running ${fnName}()...`);
+                const result = window[fnName]();
+                log(`<i class="fa-solid fa-circle-check"></i> ${fnName}() → ${JSON.stringify(result)}`, 'ok');
+                console.log(`${fnName}() =>`, result);
+            } catch (err) {
+                log(`<i class="fa-solid fa-bomb"></i> Error in ${fnName}(): ${err.message}`, 'error');
+                console.error(err);
+            }
+        }
+
+        function handleRunAll() {
+            log('<i class="fa-solid fa-bolt"></i> Running ALL functions, web-head!');
+            const names = [
+                'functionOne',   'functionTwo',   'functionThree',
+                'functionFour',  'functionFive',  'functionSix',
+                'functionSeven', 'functionEight', 'functionNine',
+                'functionTen'
+            ];
+            names.forEach(handleTest);
+            log('<i class="fa-solid fa-flag-checkered"></i> All functions executed!', 'ok');
+        }
+
+        // Redirect console.log / warn / error into the panel
+        ['log', 'warn', 'error'].forEach(method => {
+            const original = console[method];
+            console[method] = (...args) => {
+                original.apply(console, args);
+                const type = method === 'log' ? 'log' : method;
+                log(
+                    args
+                        .map(a => (typeof a === 'object' ? JSON.stringify(a) : String(a)))
+                        .join(' '),
+                    type
+                );
+            };
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof functionNine === 'function') functionNine();
+            if (typeof functionTen === 'function')  functionTen();
+        });
+
+        log('<i class="fa-solid fa-rocket"></i> Playground ready. Hit a button to run a function!');
+    </script>
+</body>
+</html>
